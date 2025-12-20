@@ -1,11 +1,11 @@
-import { ArrowRight, Shield, Zap } from "lucide-react";
+import { ArrowRight, Shield, Zap, CheckCircle } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
     <section 
       className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
-      aria-label="Section héro"
+      aria-label="Section principale"
     >
       {/* Background */}
       <div 
@@ -22,21 +22,37 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-8 animate-fade-up">
             <Shield className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-accent">
-              Consultant DevSecOps • Lyon
+              Expert Digital à Lyon
             </span>
           </div>
 
-          {/* H1 Title */}
+          {/* H1 Title - SEO optimized */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
-            Solutions web et mobiles{" "}
-            <span className="text-gradient">performantes</span>, sécurisées et évolutives
+            Créez votre{" "}
+            <span className="text-gradient">application web ou mobile</span>{" "}
+            en toute sérénité
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle - More engaging and accessible */}
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up delay-200">
-            Pour PME et startups ambitieuses. Nous créons des applications fiables, 
-            automatisées et conformes aux standards de sécurité internationaux.
+            Vous avez une idée ? Nous la transformons en application performante et sécurisée. 
+            <strong className="text-primary-foreground"> Zéro jargon technique</strong>, 
+            juste des résultats concrets pour votre entreprise.
           </p>
+
+          {/* Value propositions */}
+          <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-up delay-250">
+            {[
+              "Livraison rapide",
+              "Budget maîtrisé",
+              "Sécurité garantie",
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-2 text-primary-foreground/90">
+                <CheckCircle className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-300">
@@ -45,18 +61,19 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-base px-8 py-4 animate-pulse-glow"
+              aria-label="Discuter de votre projet sur LinkedIn"
             >
-              Un message LinkedIn, et nous lançons votre projet
+              Parlons de votre projet
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
 
-          {/* Trust indicators */}
+          {/* Trust indicators - More accessible labels */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-up delay-400">
             {[
-              { icon: Shield, label: "ISO 27001", sublabel: "Cybersécurité" },
-              { icon: Zap, label: "CI/CD", sublabel: "Automatisation" },
-              { label: "10+", sublabel: "Projets livrés" },
+              { icon: Shield, label: "Protection", sublabel: "Données sécurisées" },
+              { icon: Zap, label: "Automatisé", sublabel: "Mises à jour sans stress" },
+              { label: "10+", sublabel: "Projets réussis" },
               { label: "100%", sublabel: "Clients satisfaits" },
             ].map((item, index) => (
               <div
@@ -64,7 +81,7 @@ const Hero = () => {
                 className="flex flex-col items-center p-4 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10"
               >
                 {item.icon ? (
-                  <item.icon className="w-8 h-8 text-accent mb-2" />
+                  <item.icon className="w-8 h-8 text-accent mb-2" aria-hidden="true" />
                 ) : (
                   <span className="text-2xl font-bold text-accent mb-2">{item.label}</span>
                 )}
