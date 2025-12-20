@@ -7,50 +7,71 @@ import {
 
 const faqs = [
   {
-    question: "Qu'est-ce que le DevSecOps et pourquoi est-ce important ?",
+    question: "Je n'y connais rien en technique, c'est grave ?",
     answer:
-      "Le DevSecOps intègre la sécurité dès le début du cycle de développement, plutôt qu'à la fin. Cela permet de détecter et corriger les vulnérabilités plus tôt, réduisant les coûts et les risques. Vos applications sont ainsi sécurisées dès la conception.",
+      "Pas du tout ! C'est même notre spécialité. On traduit vos besoins en solutions concrètes, sans jamais vous noyer dans le jargon. Vous nous expliquez ce que vous voulez, on s'occupe de tout le reste.",
   },
   {
-    question: "Combien de temps faut-il pour développer une application web ou mobile ?",
+    question: "Combien de temps pour créer mon application ?",
     answer:
-      "Le délai dépend de la complexité du projet. Un MVP peut être livré en 4 à 8 semaines, tandis qu'une application complète peut prendre 3 à 6 mois. Nous établissons un planning détaillé dès le début pour une visibilité totale.",
+      "Pour une première version fonctionnelle, comptez 4 à 8 semaines. Une application complète peut prendre 3 à 6 mois selon la complexité. On vous donne un planning clair dès le départ, sans mauvaise surprise.",
   },
   {
-    question: "Qu'est-ce que le CI/CD et comment cela bénéficie-t-il à mon entreprise ?",
+    question: "Comment mes données sont-elles protégées ?",
     answer:
-      "CI/CD (Intégration Continue / Déploiement Continu) automatise les tests et les mises en production. Résultat : des mises à jour plus rapides, moins d'erreurs humaines, et une meilleure qualité logicielle. Votre équipe gagne en productivité.",
+      "On applique les mêmes normes de sécurité que les grandes entreprises (ISO 27001). Concrètement : vos données sont chiffrées, les accès sont contrôlés, et on surveille en permanence pour prévenir toute intrusion.",
   },
   {
-    question: "Qu'est-ce que la certification ISO 27001 apporte à mes projets ?",
+    question: "Que se passe-t-il après le lancement ?",
     answer:
-      "La norme ISO 27001 garantit que vos données et celles de vos clients sont protégées selon les standards internationaux. C'est un gage de confiance pour vos partenaires et clients, et souvent un prérequis pour les appels d'offres.",
+      "On ne vous abandonne pas ! Maintenance, mises à jour de sécurité, corrections, améliorations... On reste disponible pour faire évoluer votre application selon vos besoins.",
   },
   {
-    question: "Proposez-vous un accompagnement après la mise en production ?",
+    question: "C'est quoi l'avantage d'automatiser les mises à jour ?",
     answer:
-      "Absolument ! Nous offrons des contrats de maintenance incluant mises à jour de sécurité, corrections de bugs, monitoring et évolutions fonctionnelles. Vous restez concentré sur votre cœur de métier.",
+      "Imaginez : dès qu'une amélioration est prête, elle est en ligne automatiquement, testée et validée. Moins d'erreurs humaines, des nouveautés plus rapides, et vous qui gagnez du temps.",
   },
   {
-    question: "Travaillez-vous avec des startups et PME à Lyon ?",
+    question: "Vous travaillez avec les petites entreprises ?",
     answer:
-      "Oui, nous accompagnons principalement les PME et startups de la région lyonnaise et au-delà. Notre approche flexible s'adapte à vos ressources et ambitions, que vous soyez en phase de lancement ou de croissance.",
+      "Absolument ! PME, startups, entrepreneurs : on adapte notre accompagnement à votre taille et votre budget. Que vous lanciez votre premier projet ou que vous grandissiez vite, on a des solutions pour vous.",
   },
 ];
 
 const FAQSection = () => {
+  // Schema.org FAQ structured data for SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" aria-labelledby="faq-title">
+      {/* SEO: FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
-            FAQ
+            Vos questions
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Questions fréquentes
+          <h2 id="faq-title" className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            On vous dit tout
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Retrouvez les réponses aux questions les plus courantes sur nos services DevOps, développement et cybersécurité.
+            Les réponses aux questions que vous vous posez sûrement. 
+            Et si vous en avez d'autres, on est là pour y répondre !
           </p>
         </div>
 
@@ -73,13 +94,13 @@ const FAQSection = () => {
 
         <div className="mt-12 text-center">
           <p className="text-muted-foreground mb-4">
-            Vous avez d'autres questions ?
+            Une question qui n'est pas dans la liste ?
           </p>
           <a
             href="/contact"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:underline transition-all"
           >
-            Contactez-nous
+            Écrivez-nous, on répond vite
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -90,6 +111,7 @@ const FAQSection = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
