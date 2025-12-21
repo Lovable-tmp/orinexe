@@ -6,37 +6,38 @@ import {
   RefreshCw 
 } from "lucide-react";
 import ServiceCard from "./ServiceCard";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const Services = () => {
   const services = [
     {
       icon: Rocket,
-      title: "Mises à jour en un clic",
-      description: "Fini les longues attentes pour les modifications. Grâce à notre système automatisé, vos mises à jour sont déployées rapidement et sans erreur.",
+      title: "Déploiement automatisé",
+      description: "Livraison continue et déploiements fiables grâce à des pipelines CI/CD robustes. Vos mises à jour sont en production rapidement et sans risque.",
       isSecurityCard: false,
     },
     {
       icon: Shield,
-      title: "Vos données bien protégées",
-      description: "On sécurise votre application comme un coffre-fort. Vos informations et celles de vos clients sont protégées selon les normes les plus strictes.",
+      title: "Sécurité intégrée",
+      description: "Protection de vos données et de celles de vos utilisateurs selon les standards reconnus. Chiffrement, contrôle d'accès et surveillance proactive.",
       isSecurityCard: true,
     },
     {
       icon: Code,
-      title: "Une application qui vous ressemble",
-      description: "Pas de solution générique. On crée votre outil sur mesure, facile à utiliser au quotidien, que ce soit sur ordinateur ou mobile.",
+      title: "Développement sur mesure",
+      description: "Applications web et mobiles conçues selon vos besoins métier. Interface intuitive, architecture évolutive et code maintenable.",
       isSecurityCard: false,
     },
     {
       icon: TrendingUp,
-      title: "Prêt pour la croissance",
-      description: "Votre entreprise grandit ? Votre application suit le rythme. Plus de clients, plus de données : tout roule sans ralentir.",
+      title: "Scalabilité garantie",
+      description: "Infrastructure cloud dimensionnée pour accompagner votre croissance. Performance optimale, quelle que soit la charge.",
       isSecurityCard: false,
     },
     {
       icon: RefreshCw,
-      title: "On reste à vos côtés",
-      description: "Après le lancement, on continue à prendre soin de votre application. Mises à jour, améliorations, support : vous n'êtes jamais seul.",
+      title: "Maintenance continue",
+      description: "Suivi post-lancement, mises à jour de sécurité, évolutions fonctionnelles et support technique pour pérenniser votre investissement.",
       isSecurityCard: false,
     },
   ];
@@ -47,19 +48,12 @@ const Services = () => {
       aria-labelledby="services-title"
     >
       <div className="container-section">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
-            Ce qu'on fait pour vous
-          </span>
-          <h2 id="services-title" className="section-title mb-6">
-            Tout ce qu'il faut pour réussir en ligne
-          </h2>
-          <p className="section-subtitle mx-auto">
-            De l'idée au lancement, on s'occupe de tout. Vous vous concentrez sur votre métier, 
-            on gère la technique.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Nos expertises"
+          title="Un accompagnement complet"
+          titleId="services-title"
+          subtitle="De la conception au déploiement, nous prenons en charge l'ensemble du cycle de développement de votre application."
+        />
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
