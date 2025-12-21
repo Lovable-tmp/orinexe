@@ -1,5 +1,7 @@
 import { ArrowRight, Shield, Zap, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import SectionBadge from "@/components/ui/SectionBadge";
+import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -24,29 +26,30 @@ const Hero = () => {
             <SectionBadge variant="light">
               <span className="flex items-center gap-2">
                 <Shield className="w-4 h-4" />
-                Consultant Digital — Lyon
+                Expert technique — Lyon
               </span>
             </SectionBadge>
           </div>
 
           {/* H1 Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
-            Transformez votre idée en{" "}
-            <span className="text-gradient">application performante</span>
+            Votre partenaire technique{" "}
+            <span className="text-gradient">pour chaque étape</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up delay-200">
-            Conception et développement d'applications web et mobiles sur mesure. 
-            Un accompagnement clair, des solutions robustes et sécurisées.
+            Audit, développement, accompagnement CTO, sécurité... 
+            Que ce soit pour un projet complet ou une mission ponctuelle, 
+            vous avez un expert à vos côtés.
           </p>
 
           {/* Value propositions */}
           <div className="flex flex-wrap justify-center gap-6 mb-10 animate-fade-up delay-300">
             {[
-              "Livraison maîtrisée",
-              "Architecture sécurisée",
-              "Accompagnement dédié",
+              "CTO as a Service",
+              "Audit & Conseil",
+              "Développement sur mesure",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-primary-foreground/90">
                 <CheckCircle className="w-4 h-4 text-accent" />
@@ -57,23 +60,26 @@ const Hero = () => {
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-400">
-            <a
-              href="/contact"
-              className="btn-primary text-base px-8 py-4"
-              aria-label="Discuter de votre projet"
-            >
-              Démarrer un projet
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <Link to="/contact">
+              <Button size="lg" className="gap-2">
+                Discutons de vos besoins
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button variant="outline" size="lg" className="bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                Découvrir nos services
+              </Button>
+            </Link>
           </div>
 
           {/* Trust indicators */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-up delay-500">
             {[
-              { icon: Shield, label: "Sécurité", sublabel: "Normes ISO 27001" },
-              { icon: Zap, label: "Automatisation", sublabel: "Déploiement continu" },
+              { icon: Shield, label: "ISO 27001", sublabel: "Certifié sécurité" },
+              { icon: Zap, label: "CI/CD", sublabel: "Automatisation" },
+              { label: "5+", sublabel: "Années d'expérience" },
               { label: "10+", sublabel: "Projets livrés" },
-              { label: "100%", sublabel: "Satisfaction client" },
             ].map((item, index) => (
               <div
                 key={index}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,8 +9,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Accueil", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Tarifs", path: "/tarifs" },
     { name: "À propos", path: "/a-propos" },
-    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -41,6 +43,9 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <Link to="/contact">
+              <Button size="sm">Contact</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,6 +76,9 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button className="w-full mt-2">Contact</Button>
+              </Link>
             </div>
           </div>
         )}

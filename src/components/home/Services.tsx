@@ -1,44 +1,47 @@
 import { 
-  Rocket, 
+  HeadphonesIcon, 
   Shield, 
   Code, 
-  TrendingUp, 
-  RefreshCw 
+  Search, 
+  GitBranch,
+  ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const services = [
     {
-      icon: Rocket,
-      title: "Déploiement automatisé",
-      description: "Livraison continue et déploiements fiables grâce à des pipelines CI/CD robustes. Vos mises à jour sont en production rapidement et sans risque.",
+      icon: HeadphonesIcon,
+      title: "CTO as a Service",
+      description: "Une direction technique expérimentée sans embauche. Stratégie, architecture, management d'équipe et accompagnement décisionnel.",
       isSecurityCard: false,
     },
     {
-      icon: Shield,
-      title: "Sécurité intégrée",
-      description: "Protection de vos données et de celles de vos utilisateurs selon les standards reconnus. Chiffrement, contrôle d'accès et surveillance proactive.",
-      isSecurityCard: true,
+      icon: Search,
+      title: "Audit technique",
+      description: "Analyse de votre infrastructure, de vos pratiques et de votre sécurité. Identification des risques et plan d'action concret.",
+      isSecurityCard: false,
     },
     {
       icon: Code,
       title: "Développement sur mesure",
-      description: "Applications web et mobiles conçues selon vos besoins métier. Interface intuitive, architecture évolutive et code maintenable.",
+      description: "Applications web et mobiles conçues pour vos besoins métier. Interface intuitive, code maintenable, documentation complète.",
       isSecurityCard: false,
     },
     {
-      icon: TrendingUp,
-      title: "Scalabilité garantie",
-      description: "Infrastructure cloud dimensionnée pour accompagner votre croissance. Performance optimale, quelle que soit la charge.",
+      icon: GitBranch,
+      title: "Pipelines CI/CD",
+      description: "Automatisation des tests et déploiements. Vos mises à jour sont en production rapidement et sans risque.",
       isSecurityCard: false,
     },
     {
-      icon: RefreshCw,
-      title: "Maintenance continue",
-      description: "Suivi post-lancement, mises à jour de sécurité, évolutions fonctionnelles et support technique pour pérenniser votre investissement.",
-      isSecurityCard: false,
+      icon: Shield,
+      title: "Sécurité & Conformité",
+      description: "Audit de vulnérabilités, mise en conformité RGPD, implémentation des bonnes pratiques selon les standards ISO 27001.",
+      isSecurityCard: true,
     },
   ];
 
@@ -49,14 +52,14 @@ const Services = () => {
     >
       <div className="container-section">
         <SectionHeader
-          badge="Nos expertises"
-          title="Un accompagnement complet"
+          badge="Nos interventions"
+          title="Un accompagnement à la carte"
           titleId="services-title"
-          subtitle="De la conception au déploiement, nous prenons en charge l'ensemble du cycle de développement de votre application."
+          subtitle="Projet complet ou mission ponctuelle, nous intervenons là où vous en avez besoin."
         />
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
@@ -67,6 +70,16 @@ const Services = () => {
               delay={index * 100}
             />
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <Link to="/services">
+            <Button variant="outline" size="lg" className="gap-2">
+              Voir tous nos services
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
