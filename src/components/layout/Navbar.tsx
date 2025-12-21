@@ -41,14 +41,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <a
-              href="https://www.linkedin.com/in/orinexe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm"
-            >
-              Contactez-nous
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,14 +71,6 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <a
-                href="https://www.linkedin.com/in/orinexe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-center mt-2"
-              >
-                Contactez-nous
-              </a>
             </div>
           </div>
         )}

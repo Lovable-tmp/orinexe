@@ -1,4 +1,5 @@
 import { ArrowRight, Shield, Zap, CheckCircle } from "lucide-react";
+import SectionBadge from "@/components/ui/SectionBadge";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -12,40 +13,40 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 bg-primary/90" />
+        <div className="absolute inset-0 bg-primary/95" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container-section py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-8 animate-fade-up">
-            <Shield className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-accent">
-              Expert Digital à Lyon
-            </span>
+          <div className="mb-8 animate-fade-up">
+            <SectionBadge variant="light">
+              <span className="flex items-center gap-2">
+                <Shield className="w-4 h-4" />
+                Consultant Digital — Lyon
+              </span>
+            </SectionBadge>
           </div>
 
-          {/* H1 Title - SEO optimized */}
+          {/* H1 Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
-            Créez votre{" "}
-            <span className="text-gradient">application web ou mobile</span>{" "}
-            en toute sérénité
+            Transformez votre idée en{" "}
+            <span className="text-gradient">application performante</span>
           </h1>
 
-          {/* Subtitle - More engaging and accessible */}
+          {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up delay-200">
-            Vous avez une idée ? Nous la transformons en application performante et sécurisée. 
-            <strong className="text-primary-foreground"> Zéro jargon technique</strong>, 
-            juste des résultats concrets pour votre entreprise.
+            Conception et développement d'applications web et mobiles sur mesure. 
+            Un accompagnement clair, des solutions robustes et sécurisées.
           </p>
 
           {/* Value propositions */}
-          <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-up delay-250">
+          <div className="flex flex-wrap justify-center gap-6 mb-10 animate-fade-up delay-300">
             {[
-              "Livraison rapide",
-              "Budget maîtrisé",
-              "Sécurité garantie",
+              "Livraison maîtrisée",
+              "Architecture sécurisée",
+              "Accompagnement dédié",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-primary-foreground/90">
                 <CheckCircle className="w-4 h-4 text-accent" />
@@ -54,27 +55,25 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-300">
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-400">
             <a
-              href="https://www.linkedin.com/in/orinexe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-base px-8 py-4 animate-pulse-glow"
-              aria-label="Discuter de votre projet sur LinkedIn"
+              href="/contact"
+              className="btn-primary text-base px-8 py-4"
+              aria-label="Discuter de votre projet"
             >
-              Parlons de votre projet
+              Démarrer un projet
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
 
-          {/* Trust indicators - More accessible labels */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-up delay-400">
+          {/* Trust indicators */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-up delay-500">
             {[
-              { icon: Shield, label: "Protection", sublabel: "Données sécurisées" },
-              { icon: Zap, label: "Automatisé", sublabel: "Mises à jour sans stress" },
-              { label: "10+", sublabel: "Projets réussis" },
-              { label: "100%", sublabel: "Clients satisfaits" },
+              { icon: Shield, label: "Sécurité", sublabel: "Normes ISO 27001" },
+              { icon: Zap, label: "Automatisation", sublabel: "Déploiement continu" },
+              { label: "10+", sublabel: "Projets livrés" },
+              { label: "100%", sublabel: "Satisfaction client" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -94,9 +93,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Gradient overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
