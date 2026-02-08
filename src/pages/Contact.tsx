@@ -52,7 +52,7 @@ const Contact = () => {
 
     toast({
       title: "Message bien reçu !",
-      description: "On vous répond dans les 24 heures.",
+      description: "Nous reviendrons vers vous rapidement.",
     });
 
     setFormData({ name: "", email: "", message: "" });
@@ -68,10 +68,10 @@ const Contact = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Contactez ORINexe | Expert digital à Lyon - Réponse en 24h</title>
+        <title>Contactez ORINexe | Expert technique à Lyon</title>
         <meta 
           name="description" 
-          content="Une idée de projet ? Contactez ORINexe à Lyon. Réponse garantie en 24h. Discutons de votre application web ou mobile, sans jargon technique." 
+          content="Une idée de projet ? Contactez ORINexe à Lyon. Discutons de votre application web ou mobile, sans jargon technique." 
         />
         <link rel="canonical" href="https://orinexe.fr/contact" />
       </Helmet>
@@ -87,8 +87,7 @@ const Contact = () => {
               Parlons de votre projet
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground animate-fade-up delay-200">
-              Une idée, une question ? On est là pour vous répondre. 
-              <strong className="text-foreground"> Réponse garantie en 24 heures.</strong>
+              Une idée, une question ? Nous sommes à votre écoute pour échanger sur vos besoins.
             </p>
           </div>
         </div>

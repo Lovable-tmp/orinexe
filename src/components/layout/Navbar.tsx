@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +19,24 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <nav className="container-section">
+      {/* Skip link for accessibility - RGAA */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent focus:text-accent-foreground focus:px-4 focus:py-2 focus:rounded-lg"
+      >
+        Aller au contenu principal
+      </a>
+      <nav className="container-section" aria-label="Navigation principale">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">O</span>
-            </div>
-            <span className="font-bold text-xl text-foreground">ORINexe</span>
+          <Link to="/" className="flex items-center gap-3" aria-label="ORINexe - Retour à l'accueil">
+            <img 
+              src={logo} 
+              alt="Logo ORINexe - Vague bleue stylisée" 
+              className="h-10 md:h-12 w-auto"
+              width="48"
+              height="48"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -39,6 +50,7 @@ const Navbar = () => {
                     ? "text-accent"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
+                aria-current={isActive(link.path) ? "page" : undefined}
               >
                 {link.name}
               </Link>

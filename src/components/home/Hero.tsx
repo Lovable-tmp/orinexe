@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SectionBadge from "@/components/ui/SectionBadge";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (
