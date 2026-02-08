@@ -1,30 +1,34 @@
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import SocialLinks from "@/components/ui/SocialLinks";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground" role="contentinfo">
       <div className="container-section py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-lg">O</span>
-              </div>
-              <span className="font-bold text-xl">ORINexe</span>
+            <Link to="/" className="inline-block mb-4" aria-label="ORINexe - Retour à l'accueil">
+              <img 
+                src={logo} 
+                alt="Logo ORINexe" 
+                className="h-12 w-auto brightness-0 invert"
+                width="120"
+                height="48"
+              />
             </Link>
             <p className="text-primary-foreground/80 text-sm max-w-md mb-6">
-              Consultant en développement d'applications et infrastructure cloud. 
-              Solutions sur mesure pour PME et startups.
+              Expert technique à Lyon. CTO as a Service, audit de sécurité, développement d'applications 
+              sur mesure pour PME et startups.
             </p>
-            <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
-              <MapPin size={16} />
+            <address className="not-italic flex items-center gap-2 text-sm text-primary-foreground/70">
+              <MapPin size={16} aria-hidden="true" />
               <span>Lyon, France</span>
-            </div>
+            </address>
           </div>
 
           {/* Navigation */}
