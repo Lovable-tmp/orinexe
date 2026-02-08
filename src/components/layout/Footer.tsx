@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import SocialLinks from "@/components/ui/SocialLinks";
-import logo from "@/assets/logo.png";
+import logoLight from "@/assets/logo-light.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,11 +14,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-4" aria-label="ORINexe - Retour à l'accueil">
               <img 
-                src={logo} 
+                src={logoLight} 
                 alt="Logo ORINexe" 
-                className="h-12 w-auto brightness-0 invert"
-                width="120"
-                height="48"
+                className="h-10 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-primary-foreground/80 text-sm max-w-md mb-6">

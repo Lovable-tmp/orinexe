@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logoLight from "@/assets/logo-light.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +31,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3" aria-label="ORINexe - Retour à l'accueil">
             <img 
-              src={logo} 
-              alt="Logo ORINexe - Vague bleue stylisée" 
-              className="h-10 md:h-12 w-auto"
-              width="48"
-              height="48"
+              src={logoLight} 
+              alt="Logo ORINexe - L'expertise tech au service des PME" 
+              className="h-8 md:h-10 w-auto"
             />
           </Link>
 
